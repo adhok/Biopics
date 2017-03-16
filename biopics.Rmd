@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Data Import
 
-For this project, we will be using the `tidyverse` tool for data analysis. This is an R package that consists of tools such as `ggplot2`(data visualization),`tidyr`(data modification), `dplyr` (data management). The data set is obtained by calling the `fivethirtyeight` package using the command `library(fivethirtyeight)`.
+For this project, we will be using the `tidyverse` library for data analysis. This is an R package that consists of tools such as `ggplot2`(data visualization),`tidyr`(data modification), `dplyr` (data management). The data set is obtained by calling the `fivethirtyeight` package using the command `library(fivethirtyeight)`.
 
 
 After calling the necessary libraries, we look at the structure of the data. The command `str()` allows us to get a brief summary of the data we are dealing with. This saves from displaying the entire dataset. A custom theme is set which will be used for all the graphs in this project.
@@ -81,7 +81,7 @@ biopics %>% group_by(year_release) %>% summarise(n=n()) %>%
 The number of biopics have been increasing.
 
 
-## Colored and Non Colored
+## Colored and Non Colored 
 
 
 ### % Wise Plot 
@@ -111,7 +111,7 @@ ggplot(data = poc, aes(x = year_release, y = n*100, fill = person_of_color)) +
 
 
 
-### Type of Subject covered
+### Type of Subjects covered
 
 
 __Non Colored__
@@ -170,7 +170,7 @@ The vertical dashed line above indicates the year 1964, when the Civil Rights' A
 ## Gender Wise
 
 
-### How many biopics have there been potraying each gender?
+### Number of Biopics for each gender
 
 ```{r}
 biopics %>% group_by(year_release,subject_sex) %>% summarise(n=n()) %>% rename(gender=subject_sex) %>%
@@ -279,7 +279,7 @@ geom_bar(stat="identity", position="dodge",width = 0.7)+plotTheme()+ylab("%")+gg
                                  "#96503F","#ffc100","#918d58","#e98000","#d2f4d2","#cdc8b1","#7c3838","#1fffaf","#a87582","#5b9c31"))+facet_grid(subject_sex~.)+theme(plot.title=element_text(size=18),axis.text.x = element_text(angle=90, vjust=1))+labs(caption="Data From FiveThirtyEight")
 ```
 
-Most of the biopics depict white americans followed by african americans. There are little to no representation for
+Most of the biopics depict White Americans followed by African Americans.
 
 
 ## Directors and Lead Actors(Decade Wise)
